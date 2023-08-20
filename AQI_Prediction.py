@@ -8,7 +8,7 @@ col = pickle.load(open('col.pkl', 'rb'))
 xgb = pickle.load(open('aqi.pkl', 'rb'))
 
 def predict_AQI(data):
-    
+
     x = np.zeros(len(col))
     x[0] = data[1]
     x[1] = data[2]
@@ -22,17 +22,17 @@ def predict_AQI(data):
     x[9] = data[10]
     x[10] = data[11]
     x[11] = data[12]
-    
+
     city = data[0]
     df = pd.DataFrame([x], columns=col)
     city_index = np.where(df.columns==city)
     x[city_index] = 1
-    
+
     x_np = np.asarray(x)
     x_reshape = x_np.reshape(1, -1)
     pred = xgb.predict(x_reshape)
     pred = np.round(pred, 2)
-    
+
     if (pred <= 50):
         return 'GOOD'
     elif (pred <= 100):
