@@ -9,12 +9,6 @@ xgb = pickle.load(open('aqi.pkl', 'rb'))
 
 def predict_AQI(data):
 
-    col = ['PM2_5', 'PM10', 'NO', 'NO2', 'NOx', 'NH3', 'CO', 'SO2', 'O3', 'Benzene', 'Toluene', 'Xylene',
-           'Ahmedabad', 'Aizawl', 'Amaravati', 'Amritsar', 'Bengaluru', 'Bhopal', 'Brajrajnagar', 'Chandigarh', 
-           'Chennai', 'Coimbatore', 'Delhi', 'Ernakulam', 'Gurugram', 'Guwahati', 'Hyderabad', 'Jaipur',
-           'Jorapokhar', 'Kochi', 'Kolkata', 'Lucknow', 'Mumbai', 'Patna', 'Shillong', 'Talcher',
-           'Thiruvananthapuram', 'Visakhapatnam']
-
     x = np.zeros(len(col))
     x[0] = data[1]
     x[1] = data[2]
@@ -31,7 +25,7 @@ def predict_AQI(data):
 
     city = data[0]
     df = pd.DataFrame([x], columns=col)
-    city_index = np.where(df.columns==city)[0][0]
+    city_index = np.where(df.columns==city)
     x[city_index] = 1
 
     x_reshape = x.reshape(1, -1)
@@ -54,7 +48,7 @@ def predict_AQI(data):
 def main():
     st.title('AQI Prediction Web App')
 
-    City = st.selectbox('Name of City', c)
+    City = st.text_input('Name of City')
     PM2_5 = st.text_input('PM2.5 Level')
     PM10 = st.text_input('PM10 Level')
     NO = st.text_input('NO Level')
