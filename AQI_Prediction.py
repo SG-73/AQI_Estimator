@@ -9,6 +9,12 @@ xgb = pickle.load(open('aqi.pkl', 'rb'))
 
 def predict_AQI(data):
 
+    col = ['PM2_5', 'PM10', 'NO', 'NO2', 'NOx', 'NH3', 'CO', 'SO2', 'O3', 'Benzene', 'Toluene', 'Xylene',
+           'Ahmedabad', 'Aizawl', 'Amaravati', 'Amritsar', 'Bengaluru', 'Bhopal', 'Brajrajnagar', 'Chandigarh', 
+           'Chennai', 'Coimbatore', 'Delhi', 'Ernakulam', 'Gurugram', 'Guwahati', 'Hyderabad', 'Jaipur',
+           'Jorapokhar', 'Kochi', 'Kolkata', 'Lucknow', 'Mumbai', 'Patna', 'Shillong', 'Talcher',
+           'Thiruvananthapuram', 'Visakhapatnam']
+
     x = np.zeros(len(col))
     x[0] = data[1]
     x[1] = data[2]
@@ -23,13 +29,12 @@ def predict_AQI(data):
     x[10] = data[11]
     x[11] = data[12]
 
-    city = 'Ahmedabad'
+    city = data[0]
     df = pd.DataFrame([x], columns=col)
-    city_index = np.where(df.columns==city)
+    city_index = np.where(df.columns==city)[0][0]
     x[city_index] = 1
 
-    x_np = np.asarray(x)
-    x_reshape = x_np.reshape(1, -1)
+    x_reshape = x.reshape(1, -1)
     pred = xgb.predict(x_reshape)
     pred = np.round(pred, 2)
 
@@ -68,6 +73,7 @@ def main():
     if st.button('Calculate'):
         result = predict_AQI([City, PM2_5, PM10, NO, NO2, NOx, NH3, CO, SO2, O3, Benzene, Toluene, Xylene])
     st.success(result)
+    print(col)
 
 if __name__ == '__main__':
     main()
