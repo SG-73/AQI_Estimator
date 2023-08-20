@@ -3,14 +3,11 @@ import pandas as pd
 import streamlit as st
 import pickle
 
+c = pickle.load(open('city.pkl', 'rb'))
+col = pickle.load(open('col.pkl', 'rb'))
 xgb = pickle.load(open('aqi.pkl', 'rb'))
 
 def predict_AQI(data):
-    col = ['PM2_5', 'PM10', 'NO', 'NO2', 'NOx', 'NH3', 'CO', 'SO2', 'O3', 'Benzene', 'Toluene', 'Xylene',
-           'Ahmedabad', 'Aizawl', 'Amaravati', 'Amritsar', 'Bengaluru', 'Bhopal', 'Brajrajnagar', 'Chandigarh',
-           'Chennai', 'Coimbatore', 'Delhi', 'Ernakulam', 'Gurugram', 'Guwahati', 'Hyderabad', 'Jaipur',
-           'Jorapokhar', 'Kochi', 'Kolkata', 'Lucknow', 'Mumbai', 'Patna', 'Shillong', 'Talcher',
-           'Thiruvananthapuram', 'Visakhapatnam']
     
     x = np.zeros(len(col))
     x[0] = data[1]
@@ -52,7 +49,7 @@ def predict_AQI(data):
 def main():
     st.title('AQI Prediction Web App')
 
-    City = st.text_input('Name of City')
+    City = st.selectbox('Name of City', c)
     PM2_5 = st.text_input('PM2.5 Level')
     PM10 = st.text_input('PM10 Level')
     NO = st.text_input('NO Level')
