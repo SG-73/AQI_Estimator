@@ -48,7 +48,7 @@ def predict_AQI(data):
 def main():
     st.title('AQI Prediction Web App')
 
-    City = st.text_input('Name of City')
+    City = st.text_input('Name of')
     PM2_5 = st.text_input('PM2.5 Level')
     PM10 = st.text_input('PM10 Level')
     NO = st.text_input('NO Level')
