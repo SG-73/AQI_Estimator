@@ -1,9 +1,9 @@
 import numpy as np
 import pandas as pd
 import streamlit as st
-import joblib
+import pickle
 
-xgb = joblib.load(open('C:/Users/HP/Documents/Major Project/aqi.pkl', 'rb'))
+xgb = pickle.load(open('aqi.pkl', 'rb'))
 
 def predict_AQI(data):
     col = ['PM2_5', 'PM10', 'NO', 'NO2', 'NOx', 'NH3', 'CO', 'SO2', 'O3', 'Benzene', 'Toluene', 'Xylene',
