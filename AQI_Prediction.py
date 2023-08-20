@@ -23,7 +23,7 @@ def predict_AQI(data):
     x[10] = data[11]
     x[11] = data[12]
 
-    city = data[0]
+    city = 'Ahmedabad'
     df = pd.DataFrame([x], columns=col)
     city_index = np.where(df.columns==city)
     x[city_index] = 1
@@ -48,7 +48,7 @@ def predict_AQI(data):
 def main():
     st.title('AQI Prediction Web App')
 
-    City = st.text_input('Name of')
+    City = st.selectbox('Name of City', c)
     PM2_5 = st.text_input('PM2.5 Level')
     PM10 = st.text_input('PM10 Level')
     NO = st.text_input('NO Level')
