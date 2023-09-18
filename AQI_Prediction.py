@@ -23,7 +23,7 @@ def predict_AQI(data):
     x[10] = data[11]
     x[11] = data[12]
 
-    city = 'Ahmedabad'
+    city = data[0]
     df = pd.DataFrame([x], columns=col)
     city_index = np.where(df.columns==city)
     x[city_index] = 1
