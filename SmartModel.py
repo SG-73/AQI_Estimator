@@ -1,4 +1,4 @@
-# 🌆 Air Quality Index (AQI) Prediction Script
+# Air Quality Index (AQI) Prediction Script
 # Uses a trained regression model (pickled) to estimate AQI category
 
 import numpy as np
