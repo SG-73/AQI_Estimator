@@ -30,6 +30,7 @@ This model predicts the AQI category (Good, Moderate, Unhealthy, etc.) using his
    ```bash
    git clone https://github.com/SG-73/AQI_Estimator.git
    cd AQI_Estimator
+   ```
 
 2. Install dependencies:
 
