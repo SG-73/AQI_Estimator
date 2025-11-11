@@ -1,4 +1,4 @@
-# 🌆 Air Quality Index (AQI) Prediction App
+# Air Quality Index (AQI) Prediction App
 # Built using Streamlit and a pre-trained XGBoost model
 
 # Importing required libraries
@@ -112,3 +112,4 @@ def main():
 # Run the app
 if __name__ == '__main__':
     main()
+
