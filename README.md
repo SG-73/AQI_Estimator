@@ -11,13 +11,13 @@ This model predicts the AQI category (Good, Moderate, Unhealthy, etc.) using his
 ### Tools & Technologies
 - **Languages:** Python
 - **Libraries:** pandas, numpy, scikit-learn, streamlit, pickle
-- **Model Used:** Random Forest Regressor
+- **Model Used:** XGBoost Regressor
 - **Environment:** Jupyter Notebook / Streamlit
 
 ### Approach
 1. **Data Preprocessing:** Handle missing values and outliers in pollutant readings.
 2. **Feature Engineering:** Selected key pollutant features affecting AQI.
-3. **Model Training:** Trained and tuned a Random Forest Regressor for AQI prediction.
+3. **Model Training:** Trained and tuned a XGBoost Regressor for AQI prediction.
 4. **Evaluation:** Compared predictions against real AQI values using regression metrics.
 5. **Deployment:** Deployed via **Streamlit** for user-friendly interaction.
 
