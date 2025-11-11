@@ -14,10 +14,6 @@ This project uses historical pollutant data and machine learning to estimate rea
 - **Language:** Python
 - **Frameworks & Libraries:** Streamlit, NumPy, Pickle
 - **Model Used:** XGBoost Regressor
-- **Files Included:**
-  - `AQI_Prediction.py` → Streamlit web app
-  - `aqi.pkl` → Trained model file
-  - `city.pkl`, `col.pkl` → Encoded metadata files
 - **Deployment:** Streamlit Cloud
 
 ### Approach
