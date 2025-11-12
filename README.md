@@ -1,4 +1,4 @@
-# AQI Estimator
+# Machine Learning-Based Air Quality Prediction System
 
 ### Overview
 Built a **Machine Learning model** that predicts the **Air Quality Index (AQI)** of different cities based on pollutant concentration levels.
