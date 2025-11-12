@@ -42,6 +42,6 @@ This project uses historical pollutant data and machine learning to estimate rea
 
 3. Run the app:
 
-   streamlit run AQI_Prediction.py
+   streamlit run AQI_Estimator.py
 
 4. Access the app locally at http://localhost:8501
